@@ -366,6 +366,7 @@ parts:
     build-environment: *buildenv
     build-packages:
       - libssl-dev
+      - curl
     override-pull: |
       craftctl default
       # cargo version in .deb is too old
