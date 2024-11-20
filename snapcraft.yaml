@@ -1547,7 +1547,7 @@ parts:
         sed -i 's#includedir=${prefix}/snap/gnome-46-2404-sdk/current#includedir=${prefix}#' $CRAFT_PRIME/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig/igdgmm.pc
       fi
 
-      sed -i 's#/usr/bin/python#python3#' usr/bin/glib-mkenums
+      sed -i 's#/usr/bin/python$#python3#' usr/bin/glib-mkenums
 
       LIBTOOLIZE=usr/bin/libtoolize
       sed -i 's#pkgauxdir="$CRAFT_STAGE#pkgauxdir="/snap/gnome-46-2404-sdk/current#' $LIBTOOLIZE
