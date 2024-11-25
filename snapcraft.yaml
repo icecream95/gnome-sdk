@@ -345,36 +345,27 @@ parts:
       - libtiff-dev
 
   librsvg:
-    after: [ gdk-pixbuf, vala, meson-deps ]
+    after: [ gdk-pixbuf, vala ]
     source: https://gitlab.gnome.org/GNOME/librsvg.git
-    source-tag: '2.59.1' # they left the odd->unstable even->stable scheme, and now tags are stable
+    source-tag: '2.58.1' # they left the odd->unstable even->stable scheme, and now tags are stable
 # ext:updatesnap
 #   version-format:
 #     no-9x-revisions: true
     source-depth: 1
-    plugin: meson
-    meson-parameters:
+    plugin: autotools
+    autotools-configure-parameters:
       - --prefix=/usr
-      - -Doptimization=3
-      - -Ddebug=true
-      - -Dintrospection=enabled
-      - -Dvala=enabled
-      - -Dpixbuf=enabled
-      - -Dpixbuf-loader=enabled
-      - -Ddocs=disabled
-      - -Dtests=false
+      - --enable-introspection=yes
+      - --enable-vala=yes
+      - --enable-pixbuf-loader
     build-environment: *buildenv
     build-packages:
-      - libssl-dev
-      - curl
-    override-pull: |
+      - cargo
+    override-stage: |
+      set -eux
       craftctl default
-      # cargo version in .deb is too old
-      curl https://sh.rustup.rs -sSf > cargo.sh
-      sh ./cargo.sh -y
-      export PATH=$PATH:$HOME/.cargo/bin
-      ~/.cargo/bin/cargo install cargo-c
-      cp ~/.cargo/bin/* /usr/local/bin
+      # snapcraft is adding twice $CRAFT_STAGE
+      cp -a $CRAFT_STAGE/$CRAFT_STAGE/* $CRAFT_STAGE/
 
   epoxy:
     after: [ librsvg, meson-deps ]
