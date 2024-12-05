@@ -29,9 +29,15 @@ parts:
     build-environment: &buildenv
       - ACLOCAL_PATH: $CRAFT_STAGE/usr/share/aclocal
       - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/usr/share
-      - LD_LIBRARY_PATH: $CRAFT_STAGE/usr/lib/vala-0.56:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+      - LD_LIBRARY_PATH: "$CRAFT_STAGE/usr/lib/vala-0.56:\
+                          $CRAFT_STAGE/usr/lib:\
+                          $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR\
+                          ${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
       - GDK_PIXBUF_MODULE_FILE: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/gdk-pixbuf-2.0/2.10.0/loaders.cache
-      - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig:$CRAFT_STAGE/usr/lib/pkgconfig:$CRAFT_STAGE/usr/share/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}
+      - PKG_CONFIG_PATH: "$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig:\
+                          $CRAFT_STAGE/usr/lib/pkgconfig:\
+                          $CRAFT_STAGE/usr/share/pkgconfig\
+                          ${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
       - CRAFT_EXT_CORE_LEVEL: core24
 
   ninja:
