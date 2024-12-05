@@ -1344,6 +1344,7 @@ parts:
       - libglut-dev
       - gcc
       - gettext
+      - heif-gdk-pixbuf
       - itstool
       - libappstream5
       - libblkid1
@@ -1389,6 +1390,7 @@ parts:
       - libgraphviz-dev
       - libhogweed6t64
       - libgpg-error0
+      - libheif-dev
       - libidn2-0
       - libjpeg-dev
       - libkrb5-3
