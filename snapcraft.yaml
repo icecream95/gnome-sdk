@@ -64,7 +64,7 @@ parts:
     after: [ ninja ]
     plugin: nil
     source: https://github.com/mesonbuild/meson.git
-    source-tag: '1.5.2'
+    source-tag: '1.6.0'
     source-depth: 1
     override-build: |
       python3 -m pip install --break-system-packages .
@@ -114,7 +114,7 @@ parts:
   glib:
     after: [ libffi, meson-deps ]
     source: https://gitlab.gnome.org/GNOME/glib.git
-    source-tag: '2.82.1'
+    source-tag: '2.82.2'
 # ext:updatesnap
 #   version-format:
 #     ignore-odd-minor: true
@@ -144,7 +144,7 @@ parts:
   pixman:
     after: [ glib, meson-deps ]
     source: https://gitlab.freedesktop.org/pixman/pixman.git
-    source-tag: 'pixman-0.43.4'
+    source-tag: 'pixman-0.44.2'
 # ext:updatesnap
 #   version-format:
 #     format: 'pixman-%M.%m.%R'
@@ -267,7 +267,7 @@ parts:
   harfbuzz:
     after: [ fribidi, meson-deps ]
     source: https://github.com/harfbuzz/harfbuzz.git
-    source-tag: '10.0.1' # developers declared that they won't break ABI
+    source-tag: '10.1.0' # developers declared that they won't break ABI
     source-depth: 1
     plugin: meson
     meson-parameters:
@@ -298,7 +298,7 @@ parts:
   pango:
     after: [ libffi, harfbuzz, meson-deps ]
     source: https://gitlab.gnome.org/GNOME/pango.git
-    source-tag: '1.54.0'
+    source-tag: '1.55.0'
     source-depth: 1
     plugin: meson
     meson-parameters:
@@ -353,7 +353,7 @@ parts:
   librsvg:
     after: [ gdk-pixbuf, vala ]
     source: https://gitlab.gnome.org/GNOME/librsvg.git
-    source-tag: '2.58.1' # they left the odd->unstable even->stable scheme, and now tags are stable
+    source-tag: '2.58.5' # they left the odd->unstable even->stable scheme, and now all tags are stable
 # ext:updatesnap
 #   version-format:
 #     no-9x-revisions: true
@@ -411,7 +411,7 @@ parts:
     meson-parameters:
       - --prefix=/usr
       - -Druntime=libidn2
-      #- -Dtests=false # available in master, not in 0.21.2
+      - -Dtests=false # available in master, not in 0.21.2
       - -Doptimization=3
       - -Ddebug=true
     build-environment: *buildenv
@@ -426,7 +426,7 @@ parts:
   libsoup3:
     after: [ libpsl, meson-deps ]
     source: https://gitlab.gnome.org/GNOME/libsoup.git
-    source-tag: '3.6.0'
+    source-tag: '3.6.1'
     source-depth: 1
     plugin: meson
     meson-parameters:
@@ -525,7 +525,7 @@ parts:
   gtk4:
     after: [ wayland-protocols, meson-deps ]
     source: https://gitlab.gnome.org/GNOME/gtk.git
-    source-tag: '4.16.3'
+    source-tag: '4.16.7'
 # ext:updatesnap
 #   version-format:
 #     ignore-odd-minor: true
@@ -591,7 +591,7 @@ parts:
 
   libadwaita:
     source: https://gitlab.gnome.org/GNOME/libadwaita.git
-    source-tag: '1.6.1'
+    source-tag: '1.6.2'
     source-depth: 1
     after: [ meson-deps, gtk4 ]
     plugin: meson
@@ -795,7 +795,7 @@ parts:
   gtksourceview:
     after: [ gtkmm, meson-deps ]
     source: https://gitlab.gnome.org/GNOME/gtksourceview.git
-    source-tag: '5.14.1'
+    source-tag: '5.14.2'
 # ext:updatesnap
 #   version-format:
 #     ignore-odd-minor: true
@@ -936,7 +936,7 @@ parts:
     after: [ cogl, meson-deps ]
     source: https://github.com/linuxwacom/libwacom
     source-type: git
-    source-tag: 'libwacom-2.13.0'
+    source-tag: 'libwacom-2.14.0'
 # ext:updatesnap
 #   version-format:
 #     format: 'libwacom-%M.%m.%R'
