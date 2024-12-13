@@ -26,7 +26,7 @@ compression: lzo
 
 package-repositories:
   - type: apt
-    ppa: ubuntu-concept/x1e
+    ppa: kisak/kisak-mesa
 
 architectures:
   - arm64
@@ -51,6 +51,9 @@ parts:
       - -usr/lib/aarch64-linux-gnu/libwayland-client.so.0
       - -usr/lib/aarch64-linux-gnu/libwayland-server.so.0
       - -usr/lib/aarch64-linux-gnu/libxml2.so.2.9.13
+      - -usr/lib/aarch64-linux-gnu/libLLVM-15.so.1
+      - -usr/lib/aarch64-linux-gnu/libdrm_amdgpu.so.1.0.0
+      - -usr/lib/aarch64-linux-gnu/libdrm_radeon.so.1.0.1
 
   debs:
     after: [ gnome ]
